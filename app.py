@@ -31,8 +31,7 @@ def get_gemini_response(input,pdf_cotent,prompt):
 def input_pdf_setup(uploaded_file):
     if uploaded_file is not None:
         ## Convert the PDF to image
-        images = pdf2image.convert_from_bytes(uploaded_file.read(), poppler_path='/opt/homebrew/bin')
-       
+        images = pdf2image.convert_from_bytes(uploaded_file.read())
         # Save the first page as an image
         first_page=images[0]
 
