@@ -37,28 +37,6 @@ def get_gemini_response(input, pdf_text, prompt):
     return response.text
 
 
-# def input_pdf_setup(uploaded_file):
-#     if uploaded_file is not None:
-#         ## Convert the PDF to image
-#         images = pdf2image.convert_from_bytes(uploaded_file.read())
-#         # Save the first page as an image
-#         first_page=images[0]
-
-#         # Convert to bytes
-#         img_byte_arr = io.BytesIO()
-#         first_page.save(img_byte_arr, format='JPEG')
-#         img_byte_arr = img_byte_arr.getvalue()
-
-#         pdf_parts = [
-#             {
-#                 "mime_type": "image/jpeg",
-#                 "data": base64.b64encode(img_byte_arr).decode()  # encode to base64
-#             }
-#         ]
-#         return pdf_parts
-#     else:
-#         raise FileNotFoundError("No file uploaded")
-
 ## Streamlit App
 st.set_page_config(page_title="ATS Resume EXpert")
 st.header("ATS Tracking System")
@@ -77,12 +55,18 @@ submit2 = st.button("Tailor the Resume")
 submit3 = st.button("Percentage match")
 
 input_prompt1 = """
- You are an experienced Technical Human Resource Manager,your task is to review the provided resume against the job description. 
-  Please share your professional evaluation on whether the candidate's profile aligns with the role. 
+you are an exprinced HR manager with deep tech exprince in the field of any one role from Data analyst, Mobile application developer, android Application developer,
+iOS Application developer, Fluter developer, React native developer and deep ATS functionality.
+your task is to evaluate the resume against the provided job description.
+Please share your professional evaluation on whether the candidate's profile aligns with the role. 
  Highlight the strengths and weaknesses of the applicant in relation to the specified job requirements.
 """
 input_prompt2 = """
-Create a tailored resume for the following job description. Highlight the most relevant experience, skills, and achievements that align with the role. The resume should be concise, professional, and use action-oriented bullet points.
+you are an exprinced HR manager with deep tech exprince in the field of any one role from Data analyst, Mobile application developer, android Application developer,
+iOS Application developer, Fluter developer, React native developer and deep ATS functionality.
+your task is to evaluate the resume against the provided job description.
+Based on your analysis Create a tailored resume for the following job description. 
+Highlight the most relevant experience, skills, and achievements that align with the role. The resume should be concise, professional, and use action-oriented bullet points.
 Candidate Information:get the candidate information from the resume
 Job Description:get the job description from the input text
 
