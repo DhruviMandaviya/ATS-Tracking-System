@@ -21,7 +21,6 @@ def extract_text_from_pdf(uploaded_file):
     else:
         raise FileNotFoundError("No file uploaded")
 
-
 # Text-to-Speech function
 def text_to_speech(text):
     tts = gTTS(text=text, lang='en')
@@ -102,7 +101,7 @@ First the output should come as percentage and then keywords missing, tailored r
 if submit1:
     if uploaded_file is not None:
         pdf_text = extract_text_from_pdf(uploaded_file)
-        response = get_gemini_response(input_prompt1, [pdf_text], input_text)
+        response = get_gemini_response(input_prompt1, pdf_text, input_text)
         st.subheader("The Response is")
         st.write(response)
 
@@ -115,7 +114,7 @@ if submit1:
 if submit2:
     if uploaded_file is not None:
         pdf_text = extract_text_from_pdf(uploaded_file)
-        response = get_gemini_response(input_prompt2, [pdf_text], input_text)
+        response = get_gemini_response(input_prompt2, pdf_text, input_text)
         st.subheader("The Response is")
         st.write(response)
 
@@ -127,7 +126,7 @@ if submit2:
 if submit3:
     if uploaded_file is not None:
         pdf_text = extract_text_from_pdf(uploaded_file)
-        response = get_gemini_response(input_prompt3, [pdf_text], input_text)
+        response = get_gemini_response(input_prompt3, pdf_text, input_text)
         st.subheader("The Response is")
         st.write(response)
 
