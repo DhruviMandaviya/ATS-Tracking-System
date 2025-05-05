@@ -8,9 +8,7 @@ import streamlit as st
 import os
 import io
 from PIL import Image 
-import pdf2image
 import google.generativeai as genai
-from pdf2image import convert_from_bytes
 import fitz  # PyMuPDF
 
 def extract_text_from_pdf(uploaded_file):
